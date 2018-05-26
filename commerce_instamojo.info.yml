@@ -1,0 +1,11 @@
+name: 'Commerce Instamojo'
+type: module
+description: 'Integrates Instamojo Gateway with Drupal Commerce.'
+core: 8.x
+package: 'Payment Gateway (Instamojo)'
+configure: payment-methods.admin
+dependencies:
+  - drupal: commerce
+  - drupal: commerce_payment
+  - drupal: commerce_ui
+  - drupal: commerce_order
