@@ -1,7 +1,7 @@
 commerce_instamojo:
-    path: /commerce/commerce_instamojo
+    path: admin/commerce/commerce_instamojo
     defaults:
-      _controller: Drupal\commerce_instamojo\Controller\CommerceInstamojoController::instamojo
+      _controller: Drupal\commerce_instamojo\Controller\InstamojoController::instamojo
       title: 'Instamojo Payment Gateway'
     requirements:
       _permission: 'access content'
