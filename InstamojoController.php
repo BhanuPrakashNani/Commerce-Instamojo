@@ -8,10 +8,10 @@ use Drupal\core\Controller\ControllerBase;
  * Provides responses for the Instamojo module.
  */
 
-class InstamojoController extends Controllerbae {
+class InstamojoController extends Controllerbase {
 
 /**
- * Returns a page
+ * Returns a response page
  */
 
 function page_send_response_data() {
