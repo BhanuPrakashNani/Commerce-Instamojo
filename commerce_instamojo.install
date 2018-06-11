@@ -1,0 +1,49 @@
+<?php
+/**
+ * @file
+ * Instamojo payment gateway integration with Drupal Commerce.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function commerce_instamojo_install() {
+  $field_info = \Drupal\field\Entity\FieldStorageConfig::loadByName('commerce_customer_profile','field_phone_no')
+  if (!$field_info) {
+    $field_storage = FieldStorageConfig::create(array(
+      'name' => 'field_phone_no',
+      'cardinality' => 1,
+      'type' => 'text',
+    ));
+    $field_storage->save();
+
+    $field = FieldConfig::create(array(
+      'field_name' => 'field_phone_no',
+      'entity_type' => 'commerce_customer_profile',
+      'label' => 'Phone no.',
+      'bundle' => 'billing',
+      'required' => TRUE,
+      'settings' => array(
+        // Here you inform either or not you want this field showing up on
+        //   the registration form.
+        // 'user_register_form' => 1,
+      ),
+      'widget' => array(
+        'type' => 'textfield',
+        'weight' => '1',
+      ),
+    ));
+    $field->save();
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function commerce_instamojo_uninstall() {
+  // Deleting field storage.
+  FieldStorageConfig::loadByName('commerce_customer_profile', 'field_phone_no')->delete();
+
+  // Deleting field.
+  FieldConfig::loadByName('commerce_customer_profile', 'billing', 'field_phone_no')->delete();
+}
