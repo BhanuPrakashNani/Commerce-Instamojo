@@ -31,6 +31,8 @@ The modules required are:
 INSTALLATION
 
 Install the Commerce Instamojo module as you would normally install a contributed Drupal module. Visit: for further information.
+
+
 CONFIGURATION
 
     After installing the module, go to Admin >> Commerce >> Configuration >> Payment Methods >> Instamojo for configuring the module.
