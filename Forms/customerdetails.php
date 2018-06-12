@@ -1,59 +1,72 @@
 <?php
+    /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['first_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('First Name:'),
+      '#required' => TRUE,
+    );
+    $form['middle_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Middle Name:'),
+      '#required' => TRUE,
+    );
+    $form['last_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Last Name:'),
+      '#required' => TRUE,
+    );
+    $form['age'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Age:'),
+      '#required' => TRUE,
+    );
+    $form['customer_number'] = array (
+      '#type' => 'tel',
+      '#title' => t('Mobile no'),
+    );
+    $form['customer_dob'] = array (
+      '#type' => 'date',
+      '#title' => t('DOB'),
+      '#required' => TRUE,
+    );
+    $form['customer_gender'] = array (
+      '#type' => 'select',
+      '#title' => ('Gender'),
+      '#options' => array(
+        'Female' => t('Female'),
+        'male' => t('Male'),
+      ),
+    );
+    $form['nationality'] = array (
+      '#type' => 'radios',
+      '#title' => ('Nationality'),
+      '#options' => array(
+        'india' =>t('Indian'),
+        'other' =>t('Others')
+      ),
+    );
+    $form['address'] = array(
+      '#type' => 'textarea',
+      '#title' => ('Address'),
+      '#default_value' => '',
+      '#rows' => 4,
+    );
+    $form['bank_details'] = array(
+      '#type' => 'textarea',
+      '#title' => ('Bank Details'),
+      '#default_value' => '',
+      '#rows' => 5,
+    );
+    $form['actions']['#type'] = 'actions';
+    $form['actions']['submit'] = array(
+      '#type' => 'submit',
+      '#value' => $this->t('Save'),
+      '#button_type' => 'primary',
+    );
+    return $form;
+  }
 
-/**
-* Collecting customer details
-*
-*/
-
-function customerdetails_createform()
-{
-
-//define a form
-$form = array(
-'#attributes' => array('class' => 'customerdetails-form'),
-);
-// display search form // Age from field
-$form['_agefrom'] = array(
-'#type' => 'textfield',
-'#title' => t('Agefrom'),
-'#default_value' => '18',
-'#size' => 2,
-'#maxlength' => 2,
-'#attributes' => array('class' => 'texin'),
-'#prefix' => '',
-'#description' => t(''),
-);
-
-$form['_ageto'] = array( // Age To field
-'#type' => 'textfield',
-'#title' => t('To'),
-'#default_value' => '',
-'#size' => 3,
-'#maxlength' => 3,
-'#attributes' => array('class' => 'texin'),
-'#prefix' => '
-
-',
-'#description' => t(''),
-);
-
-$form['gen_option']=array(
-'#type'=> 'value',
-'#value'=> array(t('Male'),t('Female'))
-
-);
-
-$Gender=array("Male","Female"); // Gender select box
-$form['_sex']=array(
-'#type' => 'select',
-'#title' => t('Looking for'),
-'#default_value' => '',
-'#prefix' => '
-
-',
-'#options' => $Gender
-);
-$form['submit'] = array('#type' => 'submit', '#value' => t('Search')); // submit button
-return $form;
-
-}
+?>
