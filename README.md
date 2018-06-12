@@ -7,9 +7,12 @@ CONTENTS OF THIS FILE
     Troubleshooting
     Maintainers
 
+
 INTRODUCTION
 
 This module implements the Instamojo Payment Gateway in Drupal Commerce. Instamojo lets you collect payments instantly. Start simply by creating a link by adding details. Share with your audience, through a link. And start collecting payments in minutes.
+
+
 REQUIREMENTS
 
 The modules required are:
@@ -28,9 +31,11 @@ The modules required are:
     Line Item
     Price
 
+
 INSTALLATION
 
-Install the Commerce Instamojo module as you would normally install a contributed Drupal module. Visit: for further information.
+Install the Commerce Instamojo module as you would normally install a contributed Drupal module. Visit: for further information. Also take a look at this video on installing the module through git and URL.
+Visit: https://youtu.be/T0aDHuAHWf4
 
 
 CONFIGURATION
@@ -55,9 +60,12 @@ CONFIGURATION
 
     Visit your payment URL page in Instamojo. Click to "Advance Settings" section on payment URL page At the Payment Gateway Set Return url as http://yoursite.com/response_page, Replace yoursite.com with your site URL.
 
+
 TROUBLESHOOTING
 
 If the module is not shown in the list try deleting the module and try cloning it again. or else try clearing the cache, and then try installing it.
+
+
 MAINTAINERS
 
 Supporting Organizations:
