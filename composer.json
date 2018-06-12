@@ -1,19 +1,27 @@
 {
-    "name": "instamojo/instamojo-php",
-    "type": "library",
-    "description": "This is composer wrapper for instamojo-php",
-    "license": "MIT",
-    "homepage": "https://github.com/instamojo/instamojo-php/",
-    "keywords": ["instamojo", "php", "api", "wrapper"],
+    "name": "Commerce Instamojo",
+    "type": "drupal-module",
+    "description": "This module enable payments through links",
+    "homepage": "https://www.drupal.org/sandbox/bhanuprakashnani/2978803",
     "authors": [
         {
-            "name": "Instamojo and contributors",
-            "email": "dev@instamojo.com",
-            "homepage": "https://github.com/instamojo/instamojo-php/contributors"
+            "name": "Bhanu Prakash",
+            "email": "p.bhanuprakash12345@gmail.com",
+            "homepage": "https://www.drupal.org/u/bhanuprakashnani"
         }
     ],
     "require": {
 	     "php": ">=5.3.0"
+	     "drupal":"Commerce"
+	     "drupal":"Entity API"
+	     "drupal":"Entity Tokens"
+	     "drupal":"Rules"
+	     "drupal":"Order"
+	     "drupal":"Chaos Tools"
+	     "drupal":"Address Field"
+	     "drupal":"Price"
+	     "drupal":"Commerce Responsive UI"
+	     "drupal":"Customer Chat"
 	},
     "autoload": {
         "psr-4": {
@@ -21,7 +29,7 @@
      }
     },
     "support": {
-        "issues": "https://github.com/instamojo/instamojo-php/issues",
+        "issues": "https://github.com/BhanuPrakashNani/Commerce-Instamojo/issues",
         "docs": "https://github.com/instamojo/instamojo-php/",
         "email": "support@instamojo.com"
     }
