@@ -1,5 +1,10 @@
 <?php
 
+/**
+* Collecting customer details
+*
+*/
+
 function customerdetails_createform()
 {
 
