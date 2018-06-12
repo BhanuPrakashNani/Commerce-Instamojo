@@ -8,7 +8,7 @@ use Drupal\core\Controller\ControllerBase;
  * Provides responses for the Instamojo module.
  */
 
-class InstamojoController extends Controllerbae {
+class InstamojoController extends Controllerbase {
 
 /**
  * Returns a page
