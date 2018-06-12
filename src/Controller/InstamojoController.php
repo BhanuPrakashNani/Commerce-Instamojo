@@ -15,7 +15,7 @@ class InstamojoController extends Controllerbae {
  */
 
 function page_send_response_data() {
-$api_key     = $_POST['api_key'];
+  $api_key     = $_POST['api_key'];
   $api_token   = $_POST['api_token'];
   $data_name   = $_POST['api_key'];
   $order_id    = $_POST['vpc_OrderInfo'];
@@ -28,5 +28,7 @@ $api_key     = $_POST['api_key'];
   $data_phone  = $profile->field_phone_no[LANGUAGE_NONE][0]['value'];
   $virtualpaymentclienturl = $_POST['virtualPaymentClientURL'];
   $vpcurl      = $virtualpaymentclienturl . "?api_key=$api_key&auth_token=$api_token&data_name=$data_name&data_phone=$data_phone&data_email=     $data_email&data_amount=$data_amount&data_readonly=data_amount&intent=buy";
-  drupal_goto($vpcurl);
+  $response = new RedirectResponse($vpcurl);
+  $response->send();
+  return;
 }
