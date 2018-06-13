@@ -1,14 +1,23 @@
-<?php
-try {
-    $response = $api->paymentRequestCreate(array(
-        "purpose" => "FIFA 16",
-        "amount" => "3499",
-        "send_email" => true,
-        "email" => "foo@example.com",
-        "redirect_url" => "http://www.example.com/handle_redirect.php"
-        ));
-    print_r($response);
-}
-catch (Exception $e) {
-    print('Error: ' . $e->getMessage());
+{
+    "payment_request": {
+        "id": "d66cb29dd059482e8072999f995c4eef",
+        "phone": "+919999999999",
+        "email": "foo@example.com",
+        "buyer_name": "John Doe",
+        "amount": "2500",
+        "purpose": "FIFA 16",
+        "status": "Pending",
+        "send_sms": true,
+        "send_email": true,
+        "sms_status": "Pending",
+        "email_status": "Pending",
+        "shorturl": null,
+        "longurl": "https://www.instamojo.com/@ashwch/d66cb29dd059482e8072999f995c4eef/",
+        "redirect_url": "http://www.example.com/redirect/",
+        "webhook": "http://www.example.com/webhook/",
+        "created_at": "2015-10-07T21:36:34.665Z",
+        "modified_at": "2015-10-07T21:36:34.665Z",
+        "allow_repeated_payments": false,
+    },
+    "success": true
 }
