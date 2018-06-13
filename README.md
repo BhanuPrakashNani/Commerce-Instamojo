@@ -72,6 +72,7 @@ If the module is not shown in the list try deleting the module and try cloning i
 
 MAINTAINERS
 
+bhanuprakashnani(https://www.drupal.org/u/bhanuprakashnani)
 Supporting Organizations:
 
     Valuebound(https://www.drupal.org/valuebound)
