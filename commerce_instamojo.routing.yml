@@ -1,7 +1,23 @@
 commerce_instamojo:
-    path: admin/commerce/commerce_instamojo
+    path: /includes/send_response_page
     defaults:
-      _controller: Drupal\commerce_instamojo\Controller\InstamojoController::instamojo
+      _controller: 'Drupal\commerce_instamojo\Controller\InstamojoController::sendresponsedata'
       title: 'Instamojo Payment Gateway'
     requirements:
-      _permission: 'access content'
+      _permission: 'access commerce_instamojo page'
+
+
+
+function commerce_instamojo_menu() {
+
+  $items['send_response_page'] = array(
+    'page callback' => 'page_send_response_data',
+    'access arguments' => array('access commerce_instamojo page'),
+    'file' => 'includes/send_response.inc',
+  );
+  $items['response_page'] = array(
+    'page callback' => 'page_response_data',
+    'access arguments' => array('access commerce_instamojo page'),
+  );
+  return $items;
+}
