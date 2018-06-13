@@ -1,0 +1,6 @@
+commerce_instamojo.admin:
+  title: 'Instamojo Payment Gateway'
+  description: 'Manage payment settings for your site'
+  parent: main
+  route_name: instamojo.page_send_response_data
+  weight: 100
