@@ -5,35 +5,6 @@
  */
 
 /**
- * Implements hook_permission().
- */
-function commerce_instamojo_permission() {
-  return array(
-    'access commerce_instamojo page' => array(
-      'title' => $this->t('Access page'),
-      'description' => $this->t('Allow users to access page'),
-    ),
-  );
-}
-
-/**
- * Implements hook_menu().
- */
-function commerce_instamojo_menu() {
-
-  $items['send_response_page'] = array(
-    'page callback' => 'page_send_response_data',
-    'access arguments' => array('access commerce_instamojo page'),
-    'file' => 'includes/send_response.inc',
-  );
-  $items['response_page'] = array(
-    'page callback' => 'page_response_data',
-    'access arguments' => array('access commerce_instamojo page'),
-  );
-  return $items;
-}
-
-/**
  * Payment method callback: settings form.
  */
 function instamojo_settings_form($settings = NULL) {
