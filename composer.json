@@ -17,8 +17,8 @@
         "issues": "https://www.drupal.org/project/issues/commerce_instamojo?status=All&categories=All",
         "docs": "https://github.com/instamojo/instamojo-php/",
 	"irc":  "irc://irc.freenode.org/drupal-contribute"
-	"source": "http://cgit.drupalcode.org/commerce_instamojo/tree/?id=fdc0bff2b5bd389d9da5e9bee73c74eae64a3228"
-        "email": "support@instamojo.com"
+      "source": "http://cgit.drupalcode.org/commerce_instamojo/tree/?id=fdc0bff2b5bd389d9da5e9bee73c74eae64a3228"
+      "email": "support@instamojo.com"
     },
 
 "license": "GPL-2.0-or-later",
