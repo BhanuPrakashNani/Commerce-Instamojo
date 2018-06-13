@@ -10,27 +10,18 @@
             "homepage": "https://www.drupal.org/u/bhanuprakashnani"
         }
     ],
-    "require": {
-	     "php": ">=5.3.0"
-	     "drupal":"Commerce"
-	     "drupal":"Entity API"
-	     "drupal":"Entity Tokens"
-	     "drupal":"Rules"
-	     "drupal":"Order"
-	     "drupal":"Chaos Tools"
-	     "drupal":"Address Field"
-	     "drupal":"Price"
-	     "drupal":"Commerce Responsive UI"
-	     "drupal":"Customer Chat"
-	},
-    "autoload": {
-        "psr-4": {
-            "Instamojo\\": "src/"
-     }
-    },
+	  
+	}
+	
     "support": {
-        "issues": "https://github.com/BhanuPrakashNani/Commerce-Instamojo/issues",
+        "issues": "https://www.drupal.org/project/issues/commerce_instamojo?status=All&categories=All",
         "docs": "https://github.com/instamojo/instamojo-php/",
+	"irc":  "irc://irc.freenode.org/drupal-contribute"
+	"source": "http://cgit.drupalcode.org/commerce_instamojo/tree/?id=fdc0bff2b5bd389d9da5e9bee73c74eae64a3228"
         "email": "support@instamojo.com"
-    }
+    },
+
+"license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+   
 }
