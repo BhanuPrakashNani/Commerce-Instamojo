@@ -50,7 +50,11 @@ CONFIGURATION
 
     Instamojo Payment Gateway
 
-    d) Get your merchant account from Instamojo Payment Gateway. Enter following details in Payment Settings: Api Key Auth Token Virtual Payment Client Url (For this create payment link in Site URL (This is your site URL without last slash) Payment Api Url.
+    d) Get your merchant account from Instamojo Payment Gateway. Enter following details in Payment Settings: 
+    Api Key 
+    Auth Token 
+    Virtual Payment 
+    Client Url (For this create payment link in Site URL (This is your site URL without last slash) Payment Api Url.
 
 [Note: Site URL must be updated with your current drupal site URL (with NO trailing slash "/")]
 
