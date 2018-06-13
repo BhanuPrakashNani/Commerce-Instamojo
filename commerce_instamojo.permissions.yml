@@ -1,0 +1,5 @@
+access simple page:
+
+	title: 'Access Page'
+        description: 'Allows users to accesws page'
+        restrict access: TRUE
