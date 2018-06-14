@@ -23,5 +23,15 @@
 
 "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
-   
+   "require": { 
+	    "drupal":"Commerce"
+	     "drupal":"Entity API"
+	     "drupal":"Entity Tokens"
+	     "drupal":"Rules"
+	     "drupal":"Order"
+	     "drupal":"Chaos Tools"
+	     "drupal":"Address Field"
+	     "drupal":"Price"
+	     "drupal":"Commerce Responsive UI"
+	     "drupal":"Customer Chat"
 }
