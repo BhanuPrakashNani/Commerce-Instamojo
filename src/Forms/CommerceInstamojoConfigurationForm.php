@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\your_module\Form;
+namespace Drupal\Commerce_instamojo\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -22,7 +22,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'first_module.settings',
+      'commerce_instamojo.settings',
     ];
   }
 
@@ -30,7 +30,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-		$config = $this->config('first_module.settings');
+		$config = $this->config('commerce_instamojo.settings');
 	  $settings = (array) $settings + array(
 		'api_key' => '',
 		'api_token' => '',
@@ -77,7 +77,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
-	$route_name = 'first_module.response';
+	$route_name = 'commerce_instamojo.response';
     $form_state->setRedirect($route_name);
   }
 
