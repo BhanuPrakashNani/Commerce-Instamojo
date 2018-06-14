@@ -5,159 +5,45 @@
  */
 
 /**
- * Payment method callback: settings form.
+ * Implements hook_install().
  */
-function instamojo_settings_form($settings = NULL) {
+function commerce_instamojo_install() {
+  $field_info = \Drupal\field\Entity\FieldStorageConfig::loadByName('commerce_customer_profile','field_phone_no')
+  if (!$field_info) {
+    $field_storage = FieldStorageConfig::create(array(
+      'name' => 'field_phone_no',
+      'cardinality' => 1,
+      'type' => 'text',
+    ));
+    $field_storage->save();
 
-  $form = array();
-
-  $settings = (array) $settings + array(
-    'api_key' => '',
-    'api_token' => '',
-    'virtualPaymentClientURL' => '',
-    'site_url' => '',
-    'api_url'  => 'https://www.instamojo.com/api/1.1/payments',
-  );
-  $form['api_key'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Api Key'),
-    '#default_value' => $settings['api_key'],
-    '#required' => TRUE,
-  );
-  $form['api_token'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Auth Token'),
-    '#default_value' => $settings['api_token'],
-    '#required' => TRUE,
-  );
-  $form['virtualPaymentClientURL'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Virtual Payment Client Url'),
-    '#default_value' => $settings['virtualPaymentClientURL'],
-    '#required' => TRUE,
-  );
-  $form['site_url'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Site URL'),
-    '#default_value' => $settings['site_url'],
-    '#required' => TRUE,
-    '#description' => t('Please remove last slash from the site url'),
-  );
-  $form['api_url'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Payment Api Url'),
-    '#default_value' => $settings['api_url'],
-    '#required' => TRUE,
-  );
-  return $form;
-}
-/**
- * Implements hook_commerce_payment_method_info().
- */
-function commerce_instamojo_commerce_payment_method_info() {
-  $payment_methods = array();
-  $payment_methods['instamojo'] = array(
-    'base' => 'instamojo',
-    'title' => t("Instamojo Payment Gateway"),
-    'display_title' => "Instamojo Payment Gateway",
-    'short_title' => 'Instamojo Payment Gateway',
-    'description' => t("Payment method - Commerce Instamojo Payment Gateway"),
-    'terminal' => TRUE,
-    'offsite' => TRUE,
-    'offsite_autoredirect' => TRUE,
-  );
-  return $payment_methods;
-}
-/**
- * Payment method callback: redirect form.
- */
-function instamojo_redirect_form($form, &$form_state, $order, $payment_method) {
-  $api_key = $payment_method['settings']['api_key'];
-  $api_token = $payment_method['settings']['api_token'];
-  $virtualpaymentclienturl = $payment_method['settings']['virtualPaymentClientURL'];
-  $site_url = $payment_method['settings']['site_url'];
-  $api_url = $payment_method['settings']['api_url'];
-  $order_id = $order->order_id;
-  \Drupal::state()->set('order_id',$order_id);
-  \Drupal::state()->set('api_key',$api_key);
-  \Drupal::state()->set('api_token',$api_token);
-  \Drupal::state()->set('site_url',$site_url);
-  \Drupal::state()->set('api_url',$api_url);
-
-  $form['api_key'] = array(
-    '#type' => 'hidden',
-    '#value' => $api_key,
-  );
-  $form['api_token'] = array(
-    '#type' => 'hidden',
-    '#value' => $api_token,
-  );
-  $form['virtualPaymentClientURL'] = array(
-    '#type' => 'hidden',
-    '#value' => $virtualpaymentclienturl,
-  );
-  $form['site_url'] = array(
-    '#type' => 'hidden',
-    '#value' => $site_url,
-  );
-  $form['vpc_Amount'] = array(
-    '#type' => 'hidden',
-    '#value' => $order->commerce_order_total[LANGUAGE_NONE][0]['amount'],
-  );
-  $form['vpc_OrderInfo'] = array(
-    '#type' => 'hidden',
-    '#value' => $order->order_id,
-  );
-  $link = $site_url . '/send_response_page';
-  $form['#action'] = $link;
-  return $form;
-}
-
-/**
- * Function handle response from gateway .
- */
-function page_response_data() {
-  $api_key =  \Drupal::state()->get('api_key', '');
-  $api_token =  \Drupal::state()->get('api_token', '');
-  $order_id =  \Drupal::state()->get('order_id', '');
-  $site_url =  \Drupal::state()->get('site_url', '');
-  $api_url =  \Drupal::state()->get('api_url', '');
-
-  $pay_id = $_GET['payment_id'];
-  $status = $_GET['status'];
-  $json = json_decode(file_get_contents($api_url . "/" . $pay_id . "?api_key=$api_key&auth_token=$api_token"));
-  $amount = $json->payment->amount;
-  if ($status == "success") {
-    $commerce_order = commerce_order_load($order_id);
-    $wrapper = entity_metadata_wrapper('commerce_order', $commerce_order);
-    $currency = $wrapper->commerce_order_total->currency_code->value();
-    $name = 'checkout_complete';
-    $order_success = commerce_order_status_update($commerce_order, $name, FALSE, TRUE, '');
-    commerce_checkout_complete($order_success);
-    $wrapper = entity_metadata_wrapper('commerce_order', $commerce_order);
-    $currency = $wrapper->commerce_order_total->currency_code->value();
-    $transaction = commerce_payment_transaction_new('instamojo', $order_id);
-    $transaction->amount = $amount;
-    $transaction->message = $status;
-    $transaction->currency_code = $currency;
-    $transaction->status = COMMERCE_PAYMENT_STATUS_SUCCESS;
-    commerce_payment_transaction_save($transaction);
-    commerce_payment_redirect_pane_next_page($order_success);
-    $response = new RedirectResponse($site_url . '/checkout/' . $order_id . '/complete');
-    $response->send();
-    return;
+    $field = FieldConfig::create(array(
+      'field_name' => 'field_phone_no',
+      'entity_type' => 'commerce_customer_profile',
+      'label' => 'Phone no.',
+      'bundle' => 'billing',
+      'required' => TRUE,
+      'settings' => array(
+        // Here you inform either or not you want this field showing up on
+        //   the registration form.
+        // 'user_register_form' => 1,
+      ),
+      'widget' => array(
+        'type' => 'textfield',
+        'weight' => '1',
+      ),
+    ));
+    $field->save();
   }
-  else {
-    $commerce_order = commerce_order_load($order_id);
-    $name = 'checkout_review';
-    $order_failure = commerce_order_status_update($commerce_order, $name, FALSE, TRUE, '');
-    $transaction = commerce_payment_transaction_new('instamojo', $order_id);
-    $transaction->message = $status;
-    $transaction->status = COMMERCE_PAYMENT_STATUS_FAILURE;
-    commerce_payment_transaction_save($transaction);
-    commerce_payment_redirect_pane_previous_page($order_failure);
-    $response = new RedirectResponse($site_url . '/checkout/' . $order_id . '/review');
-    $response->send();
-    return;
-  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function commerce_instamojo_uninstall() {
+  // Deleting field storage.
+  FieldStorageConfig::loadByName('commerce_customer_profile', 'field_phone_no')->delete();
+
+  // Deleting field.
+  FieldConfig::loadByName('commerce_customer_profile', 'billing', 'field_phone_no')->delete();
 }
