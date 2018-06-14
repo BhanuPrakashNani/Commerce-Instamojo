@@ -1,4 +1,4 @@
-# Drupal 8 first_module.routing.yml snippet
+# Drupal 8 commerce_instamojo.routing.yml snippet
 first_module.response:
   path: '/send_response_page'
   defaults:
