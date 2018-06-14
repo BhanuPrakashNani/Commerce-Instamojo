@@ -8,7 +8,7 @@
 *
 * @ingroup lotus
 */
-function first_module_install() {
+function commerce_instamojo_install() {
   $database = \Drupal::database();
   // Add a default entry.
 	if (!field_info_field('field')) {
@@ -45,7 +45,7 @@ function first_module_install() {
 /**
  * Implements hook_uninstall().
  */
-function first_module_uninstall() {
+function commerce_instamojo_uninstall() {
   // Delete fields when module uninstall.
 	$bundle_fields = \Drupal::getContainer()->get('commerce_customer_profile')->getFieldDefinitions($entity_type, $bundle);
 	$field_definition = $bundle_fields[$field_phone_no];

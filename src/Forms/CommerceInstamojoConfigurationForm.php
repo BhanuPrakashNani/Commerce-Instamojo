@@ -14,7 +14,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'first_module_admin_settings';
+    return 'commerce_instamojo_admin_settings';
   }
 
   /**

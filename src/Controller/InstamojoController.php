@@ -1,14 +1,14 @@
 <?php
 /**
  * @file
- * Contains \Drupal\first_module\Controller\FirstController.
+ * Contains \Drupal\Commerce_Instamojo\Controller\InstamojoController.
  */
  
-namespace Drupal\first_module\Controller;
+namespace Drupal\Commerce_Instamojo\Controller;
  
 use Drupal\Core\Controller\ControllerBase;
  
-class FirstController extends ControllerBase {
+class InstamojoController extends ControllerBase {
 	public function pageSendResponseData() {
 		  $api_key     = $_POST['api_key'];
 		  $api_token   = $_POST['api_token'];
