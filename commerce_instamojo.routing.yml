@@ -1,7 +1,15 @@
-commerce_instamojo:
-    path: /includes/page_send_response_page
-    defaults:
-      _controller: 'Drupal\commerce_instamojo\Controller\InstamojoController::pagesendresponsedata'
-      title: 'Instamojo Payment Gateway'
-    requirements:
-      _permission: 'access commerce_instamojo page'
+# Drupal 8 first_module.routing.yml snippet
+first_module.response:
+  path: '/send_response_page'
+  defaults:
+    _controller: '\Drupal\first_module\Controller\FirstController::pageSendResponseData'
+    _title: 'Send Response'
+  requirements:
+    _permission: 'access content'
+first_module.page:
+  path: '/response_page'
+  defaults:
+    _controller: '\Drupal\first_module\Controller\FirstController::pageResponseData'
+    _title: 'Send Response'
+  requirements:
+    _permission: 'access content'
