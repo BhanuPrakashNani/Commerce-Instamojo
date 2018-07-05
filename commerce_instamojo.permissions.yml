@@ -2,4 +2,4 @@ access commerce_instamojo page:
 
         title: 'Access Page'
         description: 'Allows users to access page'
-        restrict access:
+        restrict access: TRUE
