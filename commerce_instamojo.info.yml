@@ -7,5 +7,3 @@ configure: payment-methods.admin
 dependencies:
   - drupal: commerce
   - drupal: commerce_payment
-  - drupal: commerce_ui
-  - drupal: commerce_order
