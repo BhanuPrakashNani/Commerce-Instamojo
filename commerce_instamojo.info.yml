@@ -6,6 +6,6 @@ package: 'Payment Gateway (Instamojo)'
 configure: payment-methods.admin
 dependencies:
   - drupal: commerce
-  - drupal: commerce_payment
+  - drupal: payment_commerce
   - drupal: commerce_ui
   - drupal: commerce_order
