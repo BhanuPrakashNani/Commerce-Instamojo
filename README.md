@@ -10,7 +10,7 @@ CONTENTS OF THIS FILE
 
 INTRODUCTION
 
-This module implements the Instamojo Payment Gateway in Drupal Commerce. Instamojo lets you collect payments instantly. Start simply by creating a link by adding details. Share with your audience, through a link. And start collecting payments in minutes.
+This module implements the Instamojo Payment Gateway in Drupal Commerce. Instamojo lets you collect payments instantly. You start simply by creating a link by adding details. Share with your audience, through a link. And start collecting payments in minutes.
 
 
 REQUIREMENTS
